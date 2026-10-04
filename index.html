@@ -1,205 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#173b32">
-	<meta name="description" content="A warm welcome. Take a breath, look around, and make yourself at home.">
-	<title>Welcome</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
-	<style>
-		:root {
-			color-scheme: light;
-			--ink: #173b32;
-			--paper: #f2f0e8;
-			--lime: #d8f36a;
-			--body-font: "DM Sans", sans-serif;
-			--display-font: "Fraunces", Georgia, serif;
-		}
-
-		* { box-sizing: border-box; }
-
-		html { scroll-behavior: smooth; }
-
-		body {
-			margin: 0;
-			background: var(--paper);
-			color: var(--ink);
-			font-family: var(--body-font);
-		}
-
-		.hero {
-			position: relative;
-			display: flex;
-			min-height: 82svh;
-			flex-direction: column;
-			justify-content: space-between;
-			overflow: hidden;
-			padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1.25rem, 8vw, 7.5rem) 4.5rem;
-			color: #fffdf6;
-			background-color: #294a40;
-			background-image:
-				linear-gradient(90deg, rgb(15 38 32 / 66%) 0%, rgb(15 38 32 / 28%) 56%, rgb(15 38 32 / 8%) 100%),
-				linear-gradient(0deg, rgb(15 38 32 / 30%), transparent 45%),
-				url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85");
-			background-position: center;
-			background-size: cover;
-			isolation: isolate;
-		}
-
-		.topbar {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			animation: arrive 700ms ease-out both;
-		}
-
-		.wordmark {
-			font-size: 0.9rem;
-			font-weight: 700;
-			letter-spacing: 0.12em;
-			text-transform: uppercase;
-		}
-
-		.top-note {
-			margin: 0;
-			font-size: 0.82rem;
-			color: rgb(255 253 246 / 82%);
-		}
-
-		.hero-content {
-			width: min(100%, 760px);
-			padding-top: 4rem;
-			animation: arrive 800ms 100ms ease-out both;
-		}
-
-		.eyebrow {
-			margin: 0 0 1.15rem;
-			color: var(--lime);
-			font-size: 0.78rem;
-			font-weight: 700;
-			letter-spacing: 0.16em;
-			text-transform: uppercase;
-		}
-
-		h1, h2 {
-			margin: 0;
-			font-family: var(--display-font);
-			font-weight: 500;
-			letter-spacing: 0;
-		}
-
-		h1 {
-			max-width: 10ch;
-			font-size: clamp(3.8rem, 9vw, 7.5rem);
-			line-height: 0.98;
-		}
-
-		.intro {
-			max-width: 36rem;
-			margin: 1.6rem 0 2rem;
-			color: rgb(255 253 246 / 88%);
-			font-size: clamp(1rem, 1.5vw, 1.2rem);
-			line-height: 1.7;
-		}
-
-		.cta {
-			display: inline-flex;
-			min-height: 3.25rem;
-			align-items: center;
-			gap: 1.25rem;
-			padding: 0.65rem 0.7rem 0.65rem 1.25rem;
-			background: var(--lime);
-			color: var(--ink);
-			font-size: 0.92rem;
-			font-weight: 700;
-			text-decoration: none;
-			transition: background-color 180ms ease, transform 180ms ease;
-		}
-
-		.cta:hover { background: #e5ff89; transform: translateY(-2px); }
-		.cta:focus-visible { outline: 3px solid white; outline-offset: 4px; }
-
-		.arrow {
-			display: grid;
-			width: 1.9rem;
-			aspect-ratio: 1;
-			place-items: center;
-			border: 1px solid rgb(23 59 50 / 28%);
-			border-radius: 50%;
-			font-size: 1.05rem;
-			line-height: 1;
-		}
-
-		.welcome-note {
-			display: grid;
-			grid-template-columns: minmax(8rem, 0.7fr) 1.3fr;
-			gap: 2rem;
-			align-items: start;
-			padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 12vw, 11rem);
-		}
-
-		.welcome-note .eyebrow { margin-top: 0.55rem; color: #587c36; }
-
-		h2 {
-			max-width: 15ch;
-			font-size: clamp(2rem, 4vw, 3.4rem);
-			line-height: 1.08;
-		}
-
-		.note-copy {
-			max-width: 34rem;
-			margin: 1rem 0 0;
-			color: #52635b;
-			font-size: 1rem;
-			line-height: 1.75;
-		}
-
-		@keyframes arrive {
-			from { opacity: 0; transform: translateY(14px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		@media (max-width: 600px) {
-			.hero { min-height: 82svh; padding-bottom: 3.5rem; }
-			.top-note { max-width: 9rem; text-align: right; }
-			.hero-content { padding-top: 3rem; }
-			.welcome-note { grid-template-columns: 1fr; gap: 0.75rem; }
-		}
-
-		@media (prefers-reduced-motion: reduce) {
-			*, *::before, *::after {
-				scroll-behavior: auto !important;
-				animation-duration: 0.01ms !important;
-				animation-iteration-count: 1 !important;
-				transition-duration: 0.01ms !important;
-			}
-		}
-	</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome</title>
+  <style>
+    :root { --bg: #faf7f2; --text: #1f1f1f; --muted: #6b6b6b; --accent: #e8643a; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #141414; --text: #f2f2f2; --muted: #a0a0a0; }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh; display: grid; place-items: center;
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      padding: 24px; text-align: center;
+    }
+    .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); margin: 0 auto 24px; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: -0.02em; }
+    p { color: var(--muted); margin-top: 12px; font-size: 1.1rem; }
+  </style>
 </head>
 <body>
-	<main>
-		<section class="hero" aria-labelledby="welcome-title">
-			<header class="topbar">
-				<span class="wordmark">A new beginning</span>
-				<p class="top-note">A little room to explore</p>
-			</header>
-			<div class="hero-content">
-				<p class="eyebrow">You made it</p>
-				<h1 id="welcome-title">A warm welcome.</h1>
-				<p class="intro">Take a breath, look around, and make yourself at home. It’s good to have you here.</p>
-				<a class="cta" href="#begin">Come on in <span class="arrow" aria-hidden="true">↓</span></a>
-			</div>
-		</section>
-		<section class="welcome-note" id="begin" aria-labelledby="begin-title">
-			<p class="eyebrow">Start here</p>
-			<div>
-				<h2 id="begin-title">Every good thing begins somewhere.</h2>
-				<p class="note-copy">This is your somewhere. Take your time, follow what interests you, and enjoy the start of something new.</p>
-			</div>
-		</section>
-	</main>
+  <main>
+    <div class="dot"></div>
+    <h1>Welcome</h1>
+    <p>This site is live. More coming soon.</p>
+  </main>
 </body>
 </html>
